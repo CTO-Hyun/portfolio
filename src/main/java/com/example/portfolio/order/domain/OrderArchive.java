@@ -37,6 +37,7 @@ public class OrderArchive {
     private OffsetDateTime archivedAt;
 
     @Lob
+    @Column(columnDefinition = "json")
     private String payload;
 
     protected OrderArchive() {

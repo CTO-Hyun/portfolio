@@ -39,7 +39,6 @@ public class Stock {
 
     private Stock(Product product, long quantity) {
         this.product = product;
-        this.productId = product.getId();
         this.quantity = quantity;
     }
 

@@ -87,4 +87,12 @@ public class User {
     public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
+
+    /**
+     * 로컬 개발 편의를 위해 암호/역할을 재설정한다.
+     */
+    public void resetCredentials(String encodedPassword, UserRole role) {
+        this.password = encodedPassword;
+        this.role = role;
+    }
 }

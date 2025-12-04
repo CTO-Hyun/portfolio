@@ -7,8 +7,13 @@ spring:
     redis:
       host: localhost
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: localhost:29092
 
 security:
   jwt:
     secret: local-development-secret-change-me-please
+
+logging:
+  level:
+    org.apache.kafka: error
+    org.apache.kafka.clients.NetworkClient: error

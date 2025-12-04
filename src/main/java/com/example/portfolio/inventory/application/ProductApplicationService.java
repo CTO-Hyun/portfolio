@@ -48,7 +48,7 @@ public class ProductApplicationService {
                     throw new BusinessException(ErrorCode.CONFLICT_ERROR, "이미 존재하는 SKU입니다.");
                 });
         Product product = Product.create(command.sku(), command.name(), command.description(), command.price());
-        Product savedProduct = productRepository.save(product);
+        Product savedProduct = productRepository.saveAndFlush(product);
         Stock stock = Stock.initialize(savedProduct, command.initialQuantity());
         Stock savedStock = stockRepository.save(stock);
         ProductView view = ProductView.from(savedProduct, savedStock);

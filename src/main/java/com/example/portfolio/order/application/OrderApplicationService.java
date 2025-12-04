@@ -54,7 +54,7 @@ public class OrderApplicationService {
     }
 
     /**
-     * 멱등키 중복 시 기존 주문을 반환하고, 신규일 경우 재고 차감과 outbox 적재를 수행한다.
+     * 중복 안전 키(Idempotency-Key) 중복 시 기존 주문을 반환하고, 신규일 경우 재고 차감과 outbox 적재를 수행한다.
      */
     @Transactional
     public OrderView createOrder(CreateOrderCommand command) {

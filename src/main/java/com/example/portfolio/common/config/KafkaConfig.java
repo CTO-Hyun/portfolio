@@ -39,12 +39,12 @@ public class KafkaConfig {
     }
 
     @Bean
-    public ProducerFactory<String, Object> producerFactory() {
+    public ProducerFactory<String, String> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
     @Bean
-    public KafkaTemplate<String, Object> kafkaTemplate() {
+    public KafkaTemplate<String, String> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 
@@ -61,9 +61,7 @@ public class KafkaConfig {
 
     @Bean
     public ConsumerFactory<String, Object> consumerFactory() {
-        JsonDeserializer<Object> jsonDeserializer = new JsonDeserializer<>();
-        jsonDeserializer.addTrustedPackages("com.example.portfolio.*");
-        return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(), jsonDeserializer);
+        return new DefaultKafkaConsumerFactory<>(consumerConfigs());
     }
 
     @Bean
