@@ -1,0 +1,3 @@
+#Modified by Testcontainers
+#Wed Dec 03 01:08:50 KST 2025
+docker.client.strategy=org.testcontainers.dockerclient.UnixSocketClientProviderStrategy

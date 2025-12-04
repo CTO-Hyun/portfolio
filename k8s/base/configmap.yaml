@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: portfolio-config
+  namespace: portfolio
+  labels:
+    app: portfolio-service
+
+data:
+  SPRING_DATASOURCE_URL: jdbc:mysql://portfolio-mysql:3306/portfolio
+  SPRING_DATASOURCE_USERNAME: portfolio
+  SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+  SPRING_DATA_REDIS_HOST: portfolio-redis
+  SPRING_KAFKA_BOOTSTRAP_SERVERS: portfolio-kafka:9092
+  MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "health,info,metrics,prometheus"
+  APP_KAFKA_TOPICS_ORDER_CREATED: order.created
+  APP_OUTBOX_POLL_INTERVAL_MS: "5000"
+  APP_ARCHIVE_RETENTION_DAYS: "30"
+  APP_ARCHIVE_CHUNK_SIZE: "100"
+  APP_ARCHIVE_CRON: "0 0 4 * * *"
